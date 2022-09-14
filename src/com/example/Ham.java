@@ -16,6 +16,7 @@ public class Ham {
         System.out.println(ham.put("a",101));
         System.out.println(ham.put("a",101));
         System.out.println(ham.get("a"));
+        System.out.println(ham.remove("a"));
         System.out.println(ham.getWormest());
 
 
