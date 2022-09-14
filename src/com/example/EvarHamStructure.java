@@ -2,35 +2,31 @@ package com.example;
 
 import java.util.HashMap;
 
-public class EvarHamStructure {
+public class EvarHamStructure <T>{
 
-    private HashMap<String, Integer> eivarim = new HashMap<>();
-    private Integer warmestValue = null;
+    private HashMap<String, T> eivarim = new HashMap<>();
+    private T warmestValue = null;
 
-    public Integer put(String key, Integer value){
-        Integer tempValue = null;
-        if (this.eivarim.containsKey(key)){
-            tempValue = eivarim.get(key);
-        }
-        this.warmestValue = value;
+
+    public T put(String key, T value){
+        T preValue = this.get(key);
         this.eivarim.put(key, value);
-        return tempValue;
+        this.warmestValue = value;
+        return preValue;
     }
 
-    public Integer remove(String key){
-        Integer tempValue = null;
-        if (this.eivarim.containsKey(key)){
-            tempValue = eivarim.get(key);
-            this.eivarim.remove(key);
-        }
-        return tempValue;
+    public T remove(String key){
+        T preValue = this.get(key);
+        this.eivarim.remove(key);
+        this.warmestValue = preValue;
+        return preValue;
     }
 
-    public Integer get(String key){
+    public T get(String key){
         return this.eivarim.get(key);
     }
 
-    public Integer GetWormest(){
+    public T getWormest(){
         return this.warmestValue;
     }
 
