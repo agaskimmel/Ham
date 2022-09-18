@@ -12,7 +12,7 @@ public class Ham {
         System.out.println(ham.get("a"));
         System.out.println(ham.getWormest());
         System.out.println(ham.put("a", "aaa"));
-        System.out.println(ham.getWormest());
+        System.out.println("aaa: " + ham.getWormest());
         System.out.println(ham.put("a",101));
         System.out.println(ham.put("a",101));
         System.out.println(ham.get("a"));
