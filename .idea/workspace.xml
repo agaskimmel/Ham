@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e83eab24-b8f2-44c0-819e-a028ce3b1a56" name="Changes" comment="get improvement">
+    <list default="true" id="e83eab24-b8f2-44c0-819e-a028ce3b1a56" name="Changes" comment="tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/EvarHamStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/EvarHamStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/EvarHamStructureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/EvarHamStructureTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/Ham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/Ham.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +56,23 @@
       <recent name="com.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EvarHamStructureTest.getChangedValByNotExcistKey">
+  <component name="RunManager" selected="JUnit.EvarHamStructureTest.evarHamVal">
+    <configuration name="EvarHamStructureTest.evarHamVal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ham" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example" />
+      <option name="MAIN_CLASS_NAME" value="com.example.EvarHamStructureTest" />
+      <option name="METHOD_NAME" value="evarHamVal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EvarHamStructureTest.getChangedValByNotExcistKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ham" />
       <extension name="coverage">
@@ -123,29 +137,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EvarHamStructureTest.removeNotExcistKeyGetPreValNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ham" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example" />
-      <option name="MAIN_CLASS_NAME" value="com.example.EvarHamStructureTest" />
-      <option name="METHOD_NAME" value="removeNotExcistKeyGetPreValNull" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EvarHamStructureTest.evarHamVal" />
         <item itemvalue="JUnit.EvarHamStructureTest.getChangedValByNotExcistKey" />
         <item itemvalue="JUnit.EvarHamStructureTest.getvalByNotExcistKey" />
         <item itemvalue="JUnit.EvarHamStructureTest.getExcistKey" />
         <item itemvalue="JUnit.EvarHamStructureTest.putNewValGetpreVal" />
-        <item itemvalue="JUnit.EvarHamStructureTest.removeNotExcistKeyGetPreValNull" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663137055849</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="tests">
+      <created>1663481180859</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1663481180859</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,7 +212,8 @@
     <MESSAGE value="T" />
     <MESSAGE value="V" />
     <MESSAGE value="get improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="get improvement" />
+    <MESSAGE value="tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ham$Ham.ic" NAME="Ham Coverage Results" MODIFIED="1661439206436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

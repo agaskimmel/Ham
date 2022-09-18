@@ -102,6 +102,56 @@ public class EvarHamStructureTest<V> {
     }
 
 
+    @Test
+    public void evarHamVal() {
+        EvarHamStructure evarHamStructure = new EvarHamStructure();
+        evarHamStructure.put("a", "1");
+        Assert.assertEquals(evarHamStructure.getWormest(), "1");
+        evarHamStructure.put("f", "2");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        evarHamStructure.put("a", "2");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        evarHamStructure.put("c", "2");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        evarHamStructure.put("a", "3");
+        Assert.assertEquals(evarHamStructure.getWormest(), "3");
+        evarHamStructure.put("e", "2");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        evarHamStructure.put("a", "4");
+        Assert.assertEquals(evarHamStructure.getWormest(), "4");
+        evarHamStructure.put("f", "5");
+
+        evarHamStructure.get("a");
+        Assert.assertEquals(evarHamStructure.getWormest(), "4");
+        evarHamStructure.get("f");
+        Assert.assertEquals(evarHamStructure.getWormest(), "5");
+        evarHamStructure.get("a");
+        Assert.assertEquals(evarHamStructure.getWormest(), "4");
+        evarHamStructure.get("c");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        evarHamStructure.get("e");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        evarHamStructure.get("f");
+        Assert.assertEquals(evarHamStructure.getWormest(), "5");
+
+
+        evarHamStructure.remove("a");
+        Assert.assertEquals(evarHamStructure.getWormest(), "4");
+        evarHamStructure.remove("f");
+        Assert.assertEquals(evarHamStructure.getWormest(), "5");
+        evarHamStructure.remove("a");
+        Assert.assertEquals(evarHamStructure.getWormest(), "5");
+        evarHamStructure.remove("c");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        evarHamStructure.remove("e");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        evarHamStructure.remove("f");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+    }
+
+
+
+
 
 
 
