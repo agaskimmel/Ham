@@ -7,21 +7,8 @@ public class EvarHamStructure <V>{
     private HashMap<String, CellVal> eivarim = new HashMap<>();
     private String lastKey = null;
 
-//
-//    private V moveToTail(String key){
-//        V preValue = removeKeyIfExcist(key);
-//
-//
-//    }
-
-    public void print(){
-        System.out.println(eivarim.toString());
-    }
-
-
-
     public V get(String key){
-        if (key == lastKey){
+        if (key.equals(lastKey)){
             return this.eivarim.get(key).val;
         }
 
@@ -37,6 +24,7 @@ public class EvarHamStructure <V>{
 
     public V put(String key, V value){
         V preValue;
+
         if(key.equals(this.lastKey)){
             preValue = this.eivarim.get(key).val;
             this.eivarim.get(key).val = value;
@@ -83,10 +71,8 @@ public class EvarHamStructure <V>{
         if (key.equals(this.lastKey)){
             this.lastKey = this.eivarim.get(key).preKey;
         }
-
         return removeKeyIfExcist(key);
     }
-
 
     public V getWormest(){
         if (lastKey!=null) {
