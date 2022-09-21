@@ -24,13 +24,11 @@ public class EvarHamStructure <V>{
 
     public V put(String key, V value){
         V preValue;
-
         if(key.equals(this.lastKey)){
             preValue = this.eivarim.get(key).val;
             this.eivarim.get(key).val = value;
             return preValue;
         }
-
         preValue = removeKeyIfExcist(key);
         CellVal newCellVal = new CellVal(lastKey, value);
         addTail(key, newCellVal);
@@ -53,7 +51,6 @@ public class EvarHamStructure <V>{
             String nextKey = this.eivarim.get(key).nextKey;
             tieNeiborsCells(preKey,nextKey);
             this.eivarim.remove(key);
-
         }
         return currentVal;
     }

@@ -29,19 +29,6 @@ public class Ham {
         System.out.println(ham.put("b", "2"));
         System.out.println(ham.getWormest());
 
-        print(ham.getWormest());
-        ham.print();
-        print(ham.get("a"));
-        ham.print();
-
-
-
-
-
-
     }
 
-    private static void print(Object wormest) {
-        System.out.println(wormest);
-    }
 }
