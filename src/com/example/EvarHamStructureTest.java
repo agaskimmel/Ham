@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class EvarHamStructureTest<V> {
 
+public class EvarHamStructureTest<V> {
 
 
     @Test
@@ -36,6 +36,7 @@ public class EvarHamStructureTest<V> {
         EvarHamStructure evarHamStructure = new EvarHamStructure();
         evarHamStructure.put("b", "2");
         evarHamStructure.remove("b");
+        evarHamStructure.print();
         Assert.assertEquals(evarHamStructure.get("b"), null);
     }
 
@@ -88,15 +89,16 @@ public class EvarHamStructureTest<V> {
     @Test
     public void getChangedValByNotExcistKey() {
         EvarHamStructure evarHamStructure = new EvarHamStructure();
-        evarHamStructure.put("a", "1");
-        evarHamStructure.put("f", "2");
-        evarHamStructure.put("a", "2");
-        evarHamStructure.put("c", "2");
-        evarHamStructure.put("a", "3");
-        evarHamStructure.put("e", "2");
+//        evarHamStructure.put("a", "1");
+//        evarHamStructure.put("f", "2");
+//        evarHamStructure.put("a", "2");
+//        evarHamStructure.put("c", "2");
+//        evarHamStructure.put("a", "3");
+//        evarHamStructure.put("e", "2");
         evarHamStructure.put("a", "4");
+        evarHamStructure.print();
         evarHamStructure.put("f", "5");
-
+        evarHamStructure.print();
         Assert.assertEquals(evarHamStructure.get("f"), "5");
         Assert.assertEquals(evarHamStructure.get("a"), "4");
     }
@@ -120,6 +122,7 @@ public class EvarHamStructureTest<V> {
         evarHamStructure.put("a", "4");
         Assert.assertEquals(evarHamStructure.getWormest(), "4");
         evarHamStructure.put("f", "5");
+        Assert.assertEquals(evarHamStructure.getWormest(), "5");
 
         evarHamStructure.get("a");
         Assert.assertEquals(evarHamStructure.getWormest(), "4");
@@ -133,20 +136,23 @@ public class EvarHamStructureTest<V> {
         Assert.assertEquals(evarHamStructure.getWormest(), "2");
         evarHamStructure.get("f");
         Assert.assertEquals(evarHamStructure.getWormest(), "5");
-
-
         evarHamStructure.remove("a");
-        Assert.assertEquals(evarHamStructure.getWormest(), "4");
+        Assert.assertEquals(evarHamStructure.getWormest(), "5");
         evarHamStructure.remove("f");
-        Assert.assertEquals(evarHamStructure.getWormest(), "5");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
         evarHamStructure.remove("a");
-        Assert.assertEquals(evarHamStructure.getWormest(), "5");
+        Assert.assertEquals(evarHamStructure.getWormest(), "2");
         evarHamStructure.remove("c");
         Assert.assertEquals(evarHamStructure.getWormest(), "2");
         evarHamStructure.remove("e");
-        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        Assert.assertEquals(evarHamStructure.getWormest(), null);
         evarHamStructure.remove("f");
-        Assert.assertEquals(evarHamStructure.getWormest(), "2");
+        Assert.assertEquals(evarHamStructure.getWormest(), null);
+
+
+        evarHamStructure.put("t", "a");
+        Assert.assertEquals(evarHamStructure.getWormest(), "a");
+
     }
 
 

@@ -7,17 +7,53 @@ public class EvarHamStructure <V>{
     private HashMap<String, CellVal> eivarim = new HashMap<>();
     private String lastKey = null;
 
+//
+//    private V moveToTail(String key){
+//        V preValue = removeKeyIfExcist(key);
+//
+//
+//    }
+
+    public void print(){
+        System.out.println(eivarim.toString());
+    }
+
+
+
+    public V get(String key){
+        if (key == lastKey){
+            return this.eivarim.get(key).val;
+        }
+
+        V preValue = removeKeyIfExcist(key);
+        if (preValue != null) {
+            CellVal newCellVal = new CellVal(lastKey, preValue);
+            addTail(key, newCellVal);
+            this.lastKey = key;
+            return this.eivarim.get(key).val;
+        }
+        return preValue;
+    }
 
     public V put(String key, V value){
-        V preValue = removeKeyIfExcist(key);
+        V preValue;
+        if(key.equals(this.lastKey)){
+            preValue = this.eivarim.get(key).val;
+            this.eivarim.get(key).val = value;
+            return preValue;
+        }
+
+        preValue = removeKeyIfExcist(key);
         CellVal newCellVal = new CellVal(lastKey, value);
-        addTail(key,newCellVal);
+        addTail(key, newCellVal);
         this.lastKey = key;
         return preValue;
     }
 
     private void addTail(String key, CellVal newCellVal) {
-        this.eivarim.get(key).nextKey = key;
+        if (!this.eivarim.isEmpty()){
+            this.eivarim.get(lastKey).nextKey = key;
+        }
         this.eivarim.put(key,newCellVal);
     }
 
@@ -27,30 +63,36 @@ public class EvarHamStructure <V>{
             currentVal = this.eivarim.get(key).val;
             String preKey = this.eivarim.get(key).preKey;
             String nextKey = this.eivarim.get(key).nextKey;
-            updateNeiborsCells(preKey,nextKey);
+            tieNeiborsCells(preKey,nextKey);
+            this.eivarim.remove(key);
+
         }
         return currentVal;
     }
 
-    private void updateNeiborsCells(String preKey, String nextKey) {
-        this.eivarim.get(preKey).nextKey = nextKey;
-        this.eivarim.get(nextKey).preKey = preKey;
+    private void tieNeiborsCells(String preKey, String nextKey) {
+        if (this.eivarim.containsKey(preKey)) {
+            this.eivarim.get(preKey).nextKey = nextKey;
+        }
+        if(this.eivarim.containsKey(nextKey)) {
+            this.eivarim.get(nextKey).preKey = preKey;
+        }
     }
 
     public V remove(String key){
+        if (key.equals(this.lastKey)){
+            this.lastKey = this.eivarim.get(key).preKey;
+        }
+
         return removeKeyIfExcist(key);
     }
 
-    public V get(String key){
-        V preValue = removeKeyIfExcist(key);
-        CellVal newCellVal = new CellVal(lastKey, preValue);
-        addTail(key,newCellVal);
-        this.lastKey = key;
-        return this.eivarim.get(key).val;
-    }
 
     public V getWormest(){
-        return this.eivarim.get(lastKey).val;
+        if (lastKey!=null) {
+            return this.eivarim.get(lastKey).val;
+        }
+        return null;
     }
 
     private class CellVal {
@@ -64,27 +106,13 @@ public class EvarHamStructure <V>{
             this.nextKey = null;
         }
 
-        public void setPreKey(String preKey) {
-            this.preKey = preKey;
+        @Override
+        public String toString() {
+            return "CellVal{" +
+                    "preKey='" + preKey + '\'' +
+                    ", nextKey='" + nextKey + '\'' +
+                    ", val=" + val +
+                    '}';
         }
-
-        public void setNextKey(String nextKey) {
-            this.nextKey = nextKey;
-        }
-
-
-
-        public String getPreKey() {
-            return preKey;
-        }
-
-        public String getNextKey() {
-            return nextKey;
-        }
-
-        public V getVal() {
-            return val;
-        }
-
     }
 }
